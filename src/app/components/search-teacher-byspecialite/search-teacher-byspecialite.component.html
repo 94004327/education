@@ -1,0 +1,49 @@
+
+ 
+
+
+<div class="container-fluid py-5" style="margin-left: 12%;">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Section de recherche -->
+        <div class="col-lg-9 mb-5 mb-lg-0">
+          <div class="card border-0">
+            <div class="card-header bg-secondary text-center p-4">
+              <h1 class="text-white m-0">Search</h1>
+            </div>
+            <div class="card-body rounded-bottom bg-primary p-5">
+              <form #searchTeacherForm="ngForm" (ngSubmit)="searchTeacherBySpecialite()">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control border-0 p-4"
+                    placeholder="your specialite..."
+                    required="required"
+                    [(ngModel)]="obj.specialite" name="specialite"
+                  />
+                </div>
+                <div>
+                  <input
+                    class="btn btn-secondary btn-block border-0 py-3"
+                    type="submit" value="Search"
+                  >
+                </div>
+                <div>{{msg}}</div>
+              </form>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Section d'affichage des enseignants -->
+        <div class="col-lg-3">
+          <div *ngIf="teachers.length > 0">
+            <div *ngFor="let teacher of teachers">
+              <app-teacher [t]="teacher"> {{teacher.firstName}} {{teacher.lastName}} - {{teacher.specialite}}</app-teacher>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

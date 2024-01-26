@@ -1,0 +1,31 @@
+
+<div class="container-fluid py-5" >
+    <table class="table custom-table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Duration</th>
+        <th>Discription</th>
+        <th>Action</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Coure of cours">
+        <td>{{Coure._id}}</td>
+        <td><strong class="text-white"></strong>{{Coure.nom}}</td>
+        <td>{{Coure.duree}}</td>
+        <th>{{Coure.discription}}</th>
+        <th><button type="button" class="btn btn-primary" (click) = "goToEdit(Coure._id)">EDIT</button>
+          <button type="button" class="btn btn-success"(click)="goToDisplay(Coure._id)">Display</button>
+          <button type="button" class="btn btn-danger"(click)="delleteCours(Coure._id)">Dellete</button>
+      </th>
+        
+      </tr>
+      
+       
+      
+    </tbody>
+  </table>
+</div>

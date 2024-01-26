@@ -1,0 +1,43 @@
+<div class="container-fluid py-5" style="margin-left: 12%;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mb-5 mb-lg-0">
+          <div class="card border-0">
+            <div class="card-header bg-secondary text-center p-4">
+              <h1 class="text-white m-0">Cours</h1>
+            </div>
+            <div class="card-body rounded-bottom bg-primary p-5">
+              <form [formGroup]="coursForm">
+                <div class="form-group">
+                  <input type="text" class="form-control border-0 p-4" placeholder="Nom ..." required="required" formControlName="nom" />
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control border-0 p-4" placeholder="Description ..." required="required" formControlName="discription" />
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control border-0 p-4" placeholder="Durée..." required="required" formControlName="duree" />
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control border-0 p-4" placeholder="Total Seats..." required="required" formControlName="seat" />
+                </div>
+                <div class="form-group">
+                  <input type="number" class="form-control border-0 p-4" placeholder="Tution Fee..." required="required" formControlName="price" />
+                </div>
+                <div class="form-group" style="visibility: hidden;">
+                  <input type="file" class="form-control" #filePicker (change)="onImageSelected($event)" >
+                </div>
+                <div class="text-center mb-3">
+                  <button class="btn btn-secondary" (click)="filePicker.click()">select your avatar</button>
+                </div>
+               
+                <img [src]="imagePreview" width="200px" alt="">
+                <div>
+                  <button class="btn btn-secondary btn-block border-0 py-3" type="submit"(click)="addOrEdit()">{{ title === 'Ajouter Cours' ? 'Ajouter Cours' : 'Edit Cours' }}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  

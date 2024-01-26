@@ -1,0 +1,34 @@
+<app-course [x] ="findedCourses"></app-course>
+<div>
+<div class="container-fluid py-5" >
+  <table class="table custom-table">
+    <thead>
+      <tr>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>email</th>
+       
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
+        <td>{{ student.email }}</td>
+       
+        <td>
+          <button type="submit" class="btn btn-success" (click)="effectue(student)"
+                  [attr.disabled]="student.courseCompleted ? true : null">
+            {{ student.courseCompleted ? 'OK' : 'Effectuer' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
+

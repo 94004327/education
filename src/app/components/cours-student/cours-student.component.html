@@ -1,0 +1,32 @@
+<div class="container-fluid py-5" >
+    <table class="table custom-table">
+    <thead>
+      <tr>
+      
+        <!-- <th>id</th> -->
+        <th>NameCour</th>
+        
+        <th>Duration</th>
+        <th>Price</th>
+        <th>Action</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Coure of cours">
+        <!-- <td>{{Coure._id}}</td> -->
+        <td>{{Coure.nom}}</td>
+       
+        <td>{{Coure.duree}}</td>
+        <th>{{Coure.price}}</th>
+        
+        <th>
+          <button type="button" class="btn btn-success"(click)="goToDisplay(Coure._id)">Display</button>
+         
+      </th>
+        
+      </tr>
+    </tbody>
+  </table>
+
+</div>

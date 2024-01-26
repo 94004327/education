@@ -1,0 +1,46 @@
+
+<div class="container-fluid py-5">
+  <table class="table custom-table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Tel</th>
+        <th>Role</th>
+        <th>status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user._id}}</td>
+        <td><strong class="text-white"></strong>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.tel}}</td>
+        <td>{{user.role}}</td>
+        <td>
+          <ng-container *ngIf="user.role === 'teacher'">
+            
+            <span *ngIf="user.status === 'true'" class="text-success">true</span>
+            <button *ngIf="user.status !== 'true'" type="button" class="btn btn-success" (click)="validateTeacher(user._id)">Valider Teacher</button>
+          </ng-container>
+          <ng-container *ngIf="user.role !== 'teacher'">
+            <span class="text-success">true</span>
+          </ng-container>
+        </td>
+        <td>
+          <button type="button" class="btn btn-success" (click)="goToDisplayUser(user._id)">Display</button>
+          <button type="button" class="btn btn-danger" (click)="delleteUsers(user._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>  
+
+   
+
+
+

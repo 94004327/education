@@ -1,0 +1,132 @@
+<div class="container-fluid py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 mb-5 mb-lg-0">
+            <img
+            class="img-fluid rounded mb-5 mb-lg-0"
+            src="assets/img/about-1.jpg"
+            alt=""
+          />
+        </div>
+        <div class="col-lg-5">
+          <div class="card border-0">
+            <div class="card-header bg-secondary text-center p-4">
+              <h1 class="text-white m-0">Signup Parent</h1>
+            </div>
+            <div class="card-body rounded-bottom bg-primary p-5">
+              <form  [formGroup]="signupParentForm">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control border-0 p-4"
+                    placeholder="FirstName ..."
+                    required="required"
+                    formControlName="firstName"
+                  />
+                  <div
+                  *ngIf="signupParentForm.controls['firstName'].invalid && (signupParentForm.controls['firstName'].touched || signupParentForm.controls['firstName'].dirty )">
+                  <div *ngIf="signupParentForm.controls['firstName'].errors.required">
+                    firstName is required
+                  </div>
+                  <div *ngIf="signupParentForm.controls['firstName'].errors.minlength">
+                    firstName should have at least 3 carat
+                  </div>
+                </div>
+                </div>
+                <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control border-0 p-4"
+                      placeholder="lastName ..."
+                      required="required"
+                      formControlName="lastName"
+                    />
+                    <div
+                  *ngIf="signupParentForm.controls['lastName'].invalid && (signupParentForm.controls['lastName'].touched || signupParentForm.controls['lastName'].dirty )">
+                  <div *ngIf="signupParentForm.controls['lastName'].errors.required">
+                    lastName is required
+                  </div>
+                  <div *ngIf="signupParentForm.controls['lastName'].errors.minlength">
+                    lastName should have at least 5 carat
+                  </div>
+                </div>
+                  </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control border-0 p-4"
+                    placeholder="Your Email..."
+                    required="required"
+                    formControlName="email"
+                  />
+                  <div
+                        *ngIf="signupParentForm.controls['email'].invalid && (signupParentForm.controls['email'].touched || signupParentForm.controls['email'].dirty )">
+                        <div *ngIf="signupParentForm.controls['email'].errors.required">
+                            email is required
+                        </div>
+                        <div *ngIf="signupParentForm.controls['email'].errors.email">
+                            Please enter a valid email address
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input
+                    type="password"
+                    class="form-control border-0 p-4"
+                    placeholder="Your Password..."
+                    required="required"
+                    formControlName="password"
+                  />
+                  <div *ngIf="signupParentForm.controls['password'].invalid &&
+            (signupParentForm.controls['password'].touched ||  signupParentForm.controls['password'].dirty) ">
+            <div *ngIf="signupParentForm.controls['password'].errors.required">
+            password is required
+            </div>
+            <div *ngIf="signupParentForm.controls['password'].errors.pattern">
+            password should have at least 1 uppercase,1 number,1special carac, min 5 and max 10
+            </div>
+            </div>
+                </div>
+                <div class="form-group">
+                    <input
+                    type="tel"
+                    class="form-control border-0 p-4"
+                    placeholder="Tel children..."
+                    required="required"
+                    formControlName="tel"
+                  />
+                </div>
+                <div class="form-group">
+                    <input
+                    type="tel"
+                    class="form-control border-0 p-4"
+                    placeholder="Your tel..."
+                    required="required"
+                    formControlName="telParent"
+                  />
+                </div>
+                <div class="form-group">
+                    <input
+                    type="text"
+                    class="form-control border-0 p-4"
+                    placeholder="Your Adresse..."
+                    required="required"
+                    formControlName="Adresse"
+                  />
+                </div>
+               
+                <div>
+                  <button
+                    class="btn btn-secondary btn-block border-0 py-3"
+                    type="submit" (click)="signupParent()"
+                  >
+                    Signup
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,32 @@
+
+  
+  
+  <div class="container">
+    <h2>Evaluation Form</h2>
+    <form [formGroup]="evaluationForm" (ngSubmit)="addNote()">
+      
+      <select formControlName="courseId" class="form-control" (change)="onCourseSelectionChange(evaluationForm.value.courseId)">
+        <option *ngFor="let course of coursList" [value]="course._id">{{ course.nom }}</option>
+      </select>
+
+      <!-- Add ngIf to conditionally render the student select when studentList is available -->
+      <div class="form-group" *ngIf="studentList && studentList.length > 0">
+        <label for="student">Select Student:</label>
+        <select formControlName="studentId" class="form-control">
+          <option *ngFor="let student of studentList" [value]="student._id">{{ student.firstName }} {{ student.lastName }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="note">Enter Note:</label>
+        <input type="number" formControlName="note" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="evaluation">Enter Evaluation:</label>
+        <input type="text" formControlName="evaluation" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Add note</button>
+
+      <span> {{ successMessage }}</span>
+    </form>
+</div>

@@ -1,0 +1,144 @@
+<div class="container-fluid py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 mb-5 mb-lg-0">
+            <img class="img-fluid mt-5" src="assets/img/class-1.jpg" alt="" width="500%" />
+        </div>
+        <div class="col-lg-5">
+          <div class="card border-0">
+            <div class="card-header bg-secondary text-center p-4">
+              <h1 class="text-white m-0">Signup Teacher</h1>
+            </div>
+            <div class="card-body rounded-bottom bg-primary p-5">
+              <form  [formGroup]="signupTeachersForm">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control border-0 p-4"
+                    placeholder="FirstName ..."
+                    required="required"
+                    formControlName="firstName"
+                  />
+                  <div
+                  *ngIf="signupTeachersForm.controls['firstName'].invalid && (signupTeachersForm.controls['firstName'].touched || signupTeachersForm.controls['firstName'].dirty )">
+                  <div *ngIf="signupTeachersForm.controls['firstName'].errors.required">
+                    firstName is required
+                  </div>
+                  <div *ngIf="signupTeachersForm.controls['firstName'].errors.minlength">
+                    firstName should have at least 3 carat
+                  </div>
+                </div>
+                </div>
+                <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control border-0 p-4"
+                      placeholder="lastName ..."
+                      required="required"
+                      formControlName="lastName"
+                    />
+                    <div
+                  *ngIf="signupTeachersForm.controls['lastName'].invalid && (signupTeachersForm.controls['lastName'].touched || signupTeachersForm.controls['lastName'].dirty )">
+                  <div *ngIf="signupTeachersForm.controls['lastName'].errors.required">
+                    lastName is required
+                  </div>
+                  <div *ngIf="signupTeachersForm.controls['lastName'].errors.minlength">
+                    lastName should have at least 5 carat
+                  </div>
+                </div>
+                  </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control border-0 p-4"
+                    placeholder="Your Email..."
+                    required="required"
+                    formControlName="email"
+                  />
+                  <div
+                        *ngIf="signupTeachersForm.controls['email'].invalid && (signupTeachersForm.controls['email'].touched || signupTeachersForm.controls['email'].dirty )">
+                        <div *ngIf="signupTeachersForm.controls['email'].errors.required">
+                            email is required
+                        </div>
+                        <div *ngIf="signupTeachersForm.controls['email'].errors.email">
+                            Please enter a valid email address
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input
+                    type="password"
+                    class="form-control border-0 p-4"
+                    placeholder="Your Password..."
+                    required="required"
+                    formControlName="password"
+                  />
+                  <div *ngIf="signupTeachersForm.controls['password'].invalid &&
+            (signupTeachersForm.controls['password'].touched ||  signupTeachersForm.controls['password'].dirty) ">
+            <div *ngIf="signupTeachersForm.controls['password'].errors.required">
+            password is required
+            </div>
+            <div *ngIf="signupTeachersForm.controls['password'].errors.pattern">
+            password should have at least 1 uppercase,1 number,1special carac, min 5 and max 10
+            </div>
+            </div>
+                </div>
+                <div class="form-group">
+                    <input
+                    type="tel"
+                    class="form-control border-0 p-4"
+                    placeholder="Your Tel..."
+                    required="required"
+                    formControlName="tel"
+                  />
+                </div>
+                <div class="form-group">
+                    <input
+                    type="text"
+                    class="form-control border-0 p-4"
+                    placeholder="Your Adresse..."
+                    required="required"
+                    formControlName="Adresse"
+                  />
+                </div>
+                <div class="form-group">
+                    <input
+                    type="text"
+                    class="form-control border-0 p-4"
+                    placeholder="Your Specialite..."
+                    required="required"
+                    formControlName="Specialite"
+                  />
+                </div>
+                <div class="form-group" style="visibility: hidden;">
+                  <input type="file" class="form-control" #filePicker (change)="onImageSelected($event)" >
+                </div>
+                <div class="text-center mb-3">
+                  <button class="btn btn-secondary" (click)="filePicker.click()">select your avatar</button>
+                </div>
+               
+                <img [src]="imagePreview" width="200px" alt="">
+                <div class="form-group" style="visibility: hidden;">
+                  <input type="file" class="form-control" #filePickerCv (change)="onImageSelectedCv($event)" >
+                </div>
+                <div class="text-center mb-3">
+                  <button class="btn btn-secondary" (click)="filePickerCv.click()">select your cv</button>
+                </div>
+               
+                <img [src]="cvPreview" width="200px" alt="">
+
+                <div>
+                  <button
+                    class="btn btn-secondary btn-block border-0 py-3"
+                    type="submit" (click)="signupTeachers()"
+                  >
+                    Signup
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
